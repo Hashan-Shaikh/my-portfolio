@@ -3,23 +3,23 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Project One",
-    description: "A full-stack web application built with React and Node.js that helps users manage their daily tasks with real-time collaboration features.",
-    tech: ["React", "Node.js", "PostgreSQL", "WebSockets"],
+    title: "Financial Insights Platform",
+    description: "SSR application for financial data visualization with React/Next.js, featuring code-splitting, CDN caching, and a RAG pipeline for AI-powered SQL generation across 340+ stock tables.",
+    tech: ["React", "Next.js", "FastAPI", "Redis", "RabbitMQ", "AWS"],
     github: "#",
     live: "#",
   },
   {
-    title: "Project Two",
-    description: "An open-source CLI tool that automates deployment workflows and integrates with popular CI/CD platforms for seamless delivery.",
-    tech: ["TypeScript", "Node.js", "Docker", "GitHub Actions"],
+    title: "Boarddd – Team Collaboration",
+    description: "Scalable real-time collaboration platform with WebSocket architecture, Elasticsearch-powered search (20–50ms latency), and microservices deployed on AWS Lambda & ECS.",
+    tech: ["React", "Zustand", "GraphQL", "Elasticsearch", "AWS", "Docker"],
     github: "#",
     live: "#",
   },
   {
-    title: "Project Three",
-    description: "A responsive dashboard for monitoring application performance metrics with interactive charts and customizable alerts.",
-    tech: ["Next.js", "Tailwind", "D3.js", "REST API"],
+    title: "Enterprise Audit Platform",
+    description: "Dynamic audit template system enabling organizations to define reusable templates with interactive Chart.js dashboards, secure JWT auth, and S3-based file management.",
+    tech: ["React", "TypeScript", "Express.js", "Redux", "PostgreSQL", "S3"],
     github: "#",
     live: "#",
   },
@@ -35,7 +35,7 @@ const Projects = () => {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-2xl md:text-3xl font-bold font-heading mb-8 flex items-center gap-3">
-          <span className="font-mono text-primary text-lg">03.</span> Projects
+          <span className="font-mono text-primary text-lg">04.</span> Projects
           <span className="h-px flex-1 bg-border ml-4" />
         </h2>
         <div className="space-y-6">
