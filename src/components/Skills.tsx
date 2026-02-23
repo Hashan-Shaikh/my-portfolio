@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  { category: "Languages", items: ["TypeScript", "JavaScript", "Python", "Java", "Go"] },
-  { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "HTML/CSS"] },
-  { category: "Backend", items: ["Node.js", "Express", "PostgreSQL", "REST APIs"] },
-  { category: "Tools", items: ["Git", "Docker", "AWS", "CI/CD", "Linux"] },
+  { category: "Languages", items: ["TypeScript", "JavaScript", "Python", "SQL"] },
+  { category: "Frontend", items: ["React 17+", "Next.js 14+", "Zustand", "Redux", "Tailwind CSS", "MUI", "Chart.js", "Jest", "RTL"] },
+  { category: "Backend", items: ["Node.js", "Express.js", "Django", "FastAPI", "REST", "GraphQL", "Pandas"] },
+  { category: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB", "Qdrant", "Redis", "Elasticsearch"] },
+  { category: "DevOps & Cloud", items: ["AWS", "Kubernetes", "Docker", "GitHub Actions", "Terraform", "CloudWatch", "Sentry"] },
 ];
 
 const Skills = () => {
@@ -17,10 +18,10 @@ const Skills = () => {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-2xl md:text-3xl font-bold font-heading mb-8 flex items-center gap-3">
-          <span className="font-mono text-primary text-lg">02.</span> Skills
+          <span className="font-mono text-primary text-lg">03.</span> Skills
           <span className="h-px flex-1 bg-border ml-4" />
         </h2>
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((group, i) => (
             <motion.div
               key={group.category}
