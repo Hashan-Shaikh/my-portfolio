@@ -6,8 +6,8 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Navbar = () => {
-  // NOTE: Projects section is currently hidden in Index.tsx, so we omit it from the header nav.
-  const links = useMemo(() => ["about", "experience", "skills", "contact"], []);
+  // Header section ids for scroll + active highlighting.
+  const links = useMemo(() => ["about", "experience", "projects", "skills", "contact"], []);
   const headerOffset = 96;
   const active = useActiveSection(links, { defaultSectionId: "about", offsetTop: headerOffset, activationSlack: 24 });
   const [scrolled, setScrolled] = useState(false);

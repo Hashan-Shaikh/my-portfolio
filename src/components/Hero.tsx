@@ -69,7 +69,7 @@ const Hero = () => {
             </div>
             <p className="text-muted-foreground max-w-xl text-base md:text-lg leading-relaxed mb-10">
               Software engineer with 3+ years of experience building scalable web applications,
-              microservices architectures, and AI-powered solutions. Currently pursuing M.Sc. in Computer Science at Universität Passau.
+              microservices architectures, and AI-powered solutions.
             </p>
 
             <div className="flex flex-wrap gap-4">
