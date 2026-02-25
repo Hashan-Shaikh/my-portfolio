@@ -3,7 +3,7 @@ import { GraduationCap, Briefcase, Code2 } from "lucide-react";
 
 const highlights = [
   { icon: Briefcase, title: "3+ Years", desc: "Professional Experience" },
-  { icon: GraduationCap, title: "M.Sc. CS", desc: "Universität Passau" },
+  { icon: GraduationCap, title: "M.Sc. CS", desc: "Universität Passau · Apr 2024 – Feb 2026 (expected)" },
   { icon: Code2, title: "Full-Stack", desc: "React · Node · Python" },
 ];
 
@@ -35,7 +35,7 @@ const About = () => {
             </p>
             <p>
               I hold a Bachelor's in Computer Science from FAST-NUCES (Dean's Honour List, SGPA 3.9+) 
-              and am currently completing my Master's at Universität Passau, focusing on 
+              and am currently completing my M.Sc. at Universität Passau (Apr 2024 – Feb 2026 (expected)), with a focus on
               Advanced Software Architecture, Distributed Systems, and Deep Learning.
             </p>
           </div>

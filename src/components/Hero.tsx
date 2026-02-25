@@ -98,7 +98,7 @@ const Hero = () => {
               {[
                 { value: "3+", label: "Years Exp." },
                 { value: "3", label: "Companies" },
-                { value: "M.Sc.", label: "CS Student" },
+                { value: "M.Sc.", label: "Apr 2024 – Feb 2026 (expected)" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-2xl font-bold font-heading text-primary">{stat.value}</div>
@@ -115,29 +115,31 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.6 }}
             className="bg-card/60 border border-border rounded-xl p-6 backdrop-blur-md hover:glow-border transition-shadow"
           >
-            <div className="flex items-center justify-between gap-4 mb-5">
-              <div className="flex items-center gap-4 min-w-0">
-                <div className="relative">
-                  <div className="absolute -inset-1.5 rounded-3xl bg-primary/20 blur-xl" />
-                  <div className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-3xl border border-primary/25 bg-background/30 overflow-hidden">
-                    <img
-                      src="/profile_pic.png"
-                      alt="Hashan Alam profile photo"
-                      className="h-full w-full object-cover object-center"
-                      loading="eager"
-                      decoding="async"
-                    />
+            <div className="relative mb-6">
+              <div className="absolute -inset-2 rounded-3xl bg-primary/15 blur-2xl" />
+              <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-background/20">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                <img
+                  src="/profile_pic.JPG"
+                  alt="Hashan Alam profile photo"
+                  className="h-[260px] w-full object-cover object-[50%_45%] sm:h-[320px] sm:object-[50%_40%]"
+                  loading="eager"
+                  decoding="async"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-4">
+                  <div className="flex items-end justify-between gap-3">
+                    <div className="min-w-0">
+                      <div className="font-heading font-bold text-foreground leading-tight truncate">Hashan Alam</div>
+                      <div className="font-mono text-xs text-muted-foreground truncate">
+                        Full‑stack Software Engineer
+                      </div>
+                    </div>
+                    <span className="inline-flex items-center rounded-full border border-border/60 bg-background/40 px-3 py-1 font-mono text-xs text-muted-foreground shrink-0">
+                      Available
+                    </span>
                   </div>
                 </div>
-                <div className="min-w-0">
-                  <div className="font-heading font-bold text-foreground leading-tight truncate">Hashan Alam</div>
-                  <div className="font-mono text-xs text-muted-foreground truncate">Full‑stack Software Engineer</div>
-                </div>
               </div>
-
-              <span className="hidden sm:inline-flex items-center rounded-full border border-border/60 bg-background/30 px-3 py-1 font-mono text-xs text-muted-foreground">
-                Available
-              </span>
             </div>
 
             <div className="flex items-center gap-2 mb-4">
@@ -165,7 +167,7 @@ const Hero = () => {
                 <div className="min-w-0">
                   <div className="text-sm text-foreground font-medium">M.Sc. Computer Science</div>
                   <div className="text-xs text-muted-foreground leading-relaxed">
-                    Universität Passau · Software architecture · Distributed systems.
+                    Universität Passau · Apr 2024 – Feb 2026 (expected) · Software architecture · Distributed systems.
                   </div>
                 </div>
               </div>
