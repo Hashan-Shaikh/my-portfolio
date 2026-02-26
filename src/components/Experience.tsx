@@ -10,74 +10,110 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+type ExperienceProject = {
+  name: string;
+  tech: string[];
+  bullets: string[];
+};
+
 const experiences = [
   {
-    company: "neXDos",
+    company: "neXDos GmbH",
     role: "Software Engineer",
-    period: "June 2025 – Present",
+    period: "06/2025 – Present",
     location: "Munich, Germany",
     summary: [
-      "Delivered React/Next.js SSR app achieving ~50% faster page loads via code-splitting and CDN caching.",
-      "Built microservices features and async workloads using RabbitMQ; improved performance with Redis caching (up to 60%).",
-      "Developed an LLM-powered RAG pipeline (FastAPI) across 340+ stock tables for secure SQL generation and exploration.",
+      "Optimized React rendering with virtualization, memoization, Suspense, and code-splitting to improve Core Web Vitals.",
+      "Implemented Redis caching for analytics dashboards, improving API response time by ~60%.",
+      "Established a monorepo + shared component package, cutting code duplication by ~35%.",
     ],
-    highlights: [
-      "Delivered React/Next.js SSR application for a financial insights platform, reducing page load times by ~50% through code-splitting and CDN caching.",
-      "Managed server state with React Query (caching, background refetching, optimistic updates), improving synchronization and reducing redundant network calls.",
-      "Created microservices-based features for inter-service communication; leveraged RabbitMQ for async non-critical tasks to reduce heavy workloads.",
-      "Engineered reusable React (TypeScript) hooks for preference persistence, cross-app usage tracking, and responsive behavior, improving modularity and scalability.",
-      "Reduced redundant Django ORM calls using raw SQL queries and database views; improved high-load endpoints by 40%+.",
-      "Structured Django backend using DAO/DTO patterns and strict OOP practices to improve testability and maintainability.",
-      "Defined Redis caching for frequently accessed query results; reduced DB load and improved API response times by up to 60%.",
-      "Implemented monorepo architecture and a shared component package, establishing a single source of truth and reducing code duplication by ~50%.",
-      "Optimized React rendering via memoization patterns and performance techniques to improve Core Web Vitals.",
-      "Improved observability with CloudWatch metrics and Sentry error tracking, reducing incident response time by ~40%.",
-      "Developed a RAG pipeline with FastAPI across 340+ stock tables, adding guardrails to deliver reliable SQL generation through LLMs for financial exploration.",
+    projects: [
+      {
+        name: "Financial Insights Platform",
+        tech: ["React", "Django", "Redis", "PostgreSQL", "AWS"],
+        bullets: [
+          "Optimized React rendering with virtualization, memoization, Suspense, and code-splitting, improving Core Web Vitals scores.",
+          "Developed reusable React (TypeScript) hooks and components, enhancing front-end scalability.",
+          "Engineered a Python backend with layered architecture (DAO/DTO separation), strengthening modularity, separation of concerns, and testability.",
+          "Implemented Redis caching for dashboards with financial analytics charts, improving API response time by ~60%.",
+          "Enforced code quality with Jest/React Testing Library tests, achieving 90%+ code coverage.",
+          "Enhanced observability via CloudWatch and Sentry, reducing incident response time by ~40%.",
+          "Reviewed merge requests and managed user stories to ensure quality and timely releases.",
+        ],
+      },
+      {
+        name: "Marketing Web Platform",
+        tech: ["Next.js", "Django", "Docker", "MUI", "Tailwind CSS"],
+        bullets: [
+          "Implemented i18n helpers at Next.js server-side, improving SEO score of the marketing app.",
+          "Developed highly responsive components with Material UI and Tailwind CSS, directly improving UI/UX.",
+          "Established a monorepo and shared component package, cutting code duplication by ~35%.",
+          "Translated Figma designs into pixel-perfect UI using HTML, CSS, and Material UI.",
+          "Participated in weekly scrums to identify workflow bottlenecks and improve team alignment.",
+        ],
+      },
     ],
-    tech: ["React", "Next.js", "Django", "FastAPI", "Redis", "AWS", "RabbitMQ"],
+    tech: ["React", "Next.js", "Django", "Redis", "PostgreSQL", "AWS", "Docker", "MUI", "Tailwind CSS", "Jest", "RTL"],
   },
   {
     company: "Aideniti",
     role: "Software Engineer",
-    period: "Dec 2023 – Dec 2024",
+    period: "12/2023 – 05/2025",
     location: "Karachi, Pakistan (Remote)",
     summary: [
-      "Led a team of 3 engineers to build a real-time collaboration platform for a UK client (Agile/Lean).",
-      "Integrated Elasticsearch search, cutting latency from 2–4s to 20–50ms.",
-      "Built AWS microservices (Lambda/ECS/API Gateway/RDS) with CI/CD via GitHub Actions for zero-downtime releases.",
+      "Integrated Elasticsearch, reducing search latency from 2–4s to 20–50ms and improving UX across dashboards.",
+      "Architected a reusable WebSocket layer with custom hooks for reliable real-time communication.",
+      "Established end-to-end CI/CD with GitHub Actions for automated testing, Docker builds, and zero-downtime releases.",
     ],
-    highlights: [
-      "Added client-side state management with Zustand for complex multi-step workflows, replacing Redux to reduce boilerplate.",
-      "Designed a reusable WebSocket architecture using custom React hooks and event-driven patterns for reliable real-time communication and cleaner state management.",
-      "Architected a microservices platform (auth, payments, notifications, real-time messaging) as independently deployable services to improve scalability and speed of delivery.",
-      "Integrated Elasticsearch for near real-time search across boards, tasks, and messages; reduced query latency from 2–4s to 20–50ms.",
-      "Led a team of 3 engineers to build Boarddd for a UK-based client using Agile and Lean practices.",
-      "Designed RESTful and GraphQL microservices on AWS (Lambda, ECS, API Gateway, RDS, IAM) with circuit breakers and retry patterns for higher uptime.",
-      "Composed a resilient API layer with Axios interceptors (token lifecycle, retries, global error handling, header standardization) to improve reliability and maintainability.",
-      "Implemented end-to-end CI/CD with GitHub Actions (testing, Docker builds, multi-environment deployments) enabling fast, reliable, zero-downtime releases.",
+    projects: [
+      {
+        name: "Boarddd – Collaboration Platform",
+        tech: ["Next.js", "Node.js", "PostgreSQL", "AWS", "Elasticsearch", "RabbitMQ", "GraphQL", "Docker"],
+        bullets: [
+          "Engineered RabbitMQ-based microservices for async tasks, reducing backend load and improving communication.",
+          "Architected a reusable WebSocket layer with custom hooks, delivering reliable real-time communication.",
+          "Decomposed the system into microservices, enhancing scalability and accelerating feature delivery.",
+          "Integrated Elasticsearch, reducing search latency from 2–4s to 20–50ms, improving UX across dashboards.",
+          "Led a team of 3 engineers to deliver a B2B SaaS platform for a UK client using Agile/Lean practices.",
+          "Designed RESTful and GraphQL microservices on AWS (Lambda, ECS, API Gateway, RDS, IAM) with circuit breakers and retries for higher uptime.",
+          "Established end-to-end CI/CD pipelines with GitHub Actions for automated testing, Docker builds, and multi-environment deployments, ensuring zero-downtime releases.",
+        ],
+      },
     ],
-    tech: ["React", "Zustand", "GraphQL", "AWS", "Elasticsearch", "Docker"],
+    tech: ["Next.js", "Node.js", "PostgreSQL", "AWS", "Elasticsearch", "RabbitMQ", "GraphQL", "Docker", "GitHub Actions"],
   },
   {
-    company: "Brew Buddy IT",
+    company: "Brew Buddy Information Technology",
     role: "Software Engineer",
-    period: "Dec 2022 – Dec 2023",
+    period: "12/2022 – 12/2023",
     location: "Dubai, UAE (Remote)",
     summary: [
-      "Built dynamic audit templates and React form workflows for enterprise auditing.",
-      "Designed Express APIs supporting 10K+ remote agent onboarding/training workflows.",
-      "Implemented secure JWT auth with refresh tokens + HTTP-only cookies; managed uploads via Multer + S3.",
+      "Designed dynamic master audit templates in React for 60+ workflows; improved reusability and customization.",
+      "Delivered high-performance REST APIs used by 10K+ remote agents, streamlining onboarding and training.",
+      "Managed file uploads/streaming with Multer + S3 and secured auth with JWT + refresh tokens + HTTP-only cookies.",
     ],
-    highlights: [
-      "Designed dynamic master audit templates in React, enabling reusable base templates and customization for diverse audit workflows.",
-      "Constructed React forms for data entry and validation; created interactive dashboards using Chart.js to visualize audit parameters.",
-      "Designed high-performance REST APIs with Express.js supporting onboarding and training workflows for 10K+ remote agents.",
-      "Built a secure stateless auth layer using JWT, refresh tokens, and HTTP-only cookies to harden sessions.",
-      "Created strongly typed React modules with TypeScript to improve reliability and developer productivity.",
-      "Implemented scalable state management with Redux Toolkit for complex async workflows.",
-      "Managed file uploads and streaming via Multer and Amazon S3 storage for efficient document handling.",
+    projects: [
+      {
+        name: "Hailo Assure (AEP) – Audit Management System",
+        tech: ["React", "TypeScript", "Redux", "AWS", "S3", "Chart.js"],
+        bullets: [
+          "Designed dynamic master audit templates in React, customizable for 60+ audit workflows, enhancing reusability.",
+          "Configured scalable state management with Redux Toolkit for complex async workflows and global state updates.",
+          "Managed file uploads and streaming with Multer and Amazon S3, ensuring efficient document handling.",
+          "Created strongly-typed React modules in TypeScript, improving reliability and maintainability.",
+          "Crafted interactive Chart.js dashboards for audit parameters, enabling better analysis and decision-making.",
+        ],
+      },
+      {
+        name: "iTalk2u – Call Centre Platform",
+        tech: ["Node.js", "MySQL", "PostgreSQL"],
+        bullets: [
+          "Delivered high-performance REST APIs utilized by 10K+ remote agents, streamlining onboarding and training workflows.",
+          "Secured the authentication layer using JWT, refresh tokens, and HTTP-only cookies, strengthening session integrity.",
+        ],
+      },
     ],
-    tech: ["React", "TypeScript", "Express.js", "Redux", "PostgreSQL", "S3"],
+    tech: ["React", "TypeScript", "Redux", "AWS", "S3", "Chart.js", "Node.js", "MySQL", "PostgreSQL", "JWT"],
   },
 ];
 
@@ -170,15 +206,34 @@ const Experience = () => {
 
                     <div className="space-y-5">
                       <div>
-                        <div className="font-mono text-xs text-primary mb-3">{`// Impact`}</div>
-                        <ul className="space-y-2">
-                          {exp.highlights.map((h, j) => (
-                            <li key={j} className="text-muted-foreground text-sm leading-relaxed flex gap-2">
-                              <span className="text-primary mt-1.5 shrink-0">▹</span>
-                              <span>{h}</span>
-                            </li>
+                        <div className="font-mono text-xs text-primary mb-3">{`// Projects`}</div>
+                        <div className="space-y-5">
+                          {exp.projects.map((p: ExperienceProject) => (
+                            <div key={p.name} className="rounded-lg border border-border/60 bg-card/40 p-4">
+                              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                                <div className="font-heading font-bold text-foreground">{p.name}</div>
+                                <div className="flex flex-wrap gap-2">
+                                  {p.tech.map((t) => (
+                                    <TechBadge
+                                      key={t}
+                                      label={t}
+                                      className="font-mono text-xs bg-secondary text-primary/80 px-2 py-1 rounded-sm"
+                                      iconClassName="h-3.5 w-3.5"
+                                    />
+                                  ))}
+                                </div>
+                              </div>
+                              <ul className="space-y-2">
+                                {p.bullets.map((h, j) => (
+                                  <li key={j} className="text-muted-foreground text-sm leading-relaxed flex gap-2">
+                                    <span className="text-primary mt-1.5 shrink-0">▹</span>
+                                    <span>{h}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           ))}
-                        </ul>
+                        </div>
                       </div>
 
                       <div>

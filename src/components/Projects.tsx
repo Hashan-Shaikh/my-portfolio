@@ -1,9 +1,20 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import TechBadge from "@/components/TechBadge";
 import { cn } from "@/lib/utils";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useState } from "react";
 
-type ProjectVisualKey = "eyewear" | "microservices" | "healthcare" | "leetcode";
+type ProjectVisualKey =
+  | "eyewear"
+  | "microservices"
+  | "healthcare"
+  | "leetcode"
+  | "analytics"
+  | "marketing"
+  | "collaboration"
+  | "audit"
+  | "callcenter";
 
 const ProjectVisual = ({ kind }: { kind: ProjectVisualKey }) => {
   const common = {
@@ -78,6 +89,105 @@ const ProjectVisual = ({ kind }: { kind: ProjectVisualKey }) => {
     );
   }
 
+  if (kind === "analytics") {
+    return (
+      <svg {...common}>
+        <g stroke={stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.92">
+          {/* chart card */}
+          <rect x="52" y="26" width="116" height="72" rx="14" opacity="0.55" />
+          {/* axes */}
+          <path d="M72 86V40" opacity="0.55" />
+          <path d="M72 86h84" opacity="0.55" />
+          {/* line */}
+          <path d="M76 78l20-18 18 10 18-22 20 12" />
+          <path d="M96 60h0" />
+          {/* points */}
+          <path d="M96 60a1 1 0 1 0 0.01 0" />
+          <path d="M114 70a1 1 0 1 0 0.01 0" />
+          <path d="M132 48a1 1 0 1 0 0.01 0" />
+          <path d="M152 60a1 1 0 1 0 0.01 0" />
+        </g>
+      </svg>
+    );
+  }
+
+  if (kind === "marketing") {
+    return (
+      <svg {...common}>
+        <g stroke={stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.92">
+          {/* browser window */}
+          <rect x="46" y="26" width="128" height="72" rx="14" opacity="0.55" />
+          <path d="M46 44h128" opacity="0.75" />
+          <path d="M62 36h0" />
+          <path d="M72 36h0" />
+          <path d="M82 36h0" />
+          {/* globe */}
+          <path d="M132 72a16 16 0 1 0 0.01 0" />
+          <path d="M116 72h32" opacity="0.7" />
+          <path d="M132 56c6 6 6 22 0 32" opacity="0.7" />
+          <path d="M132 56c-6 6-6 22 0 32" opacity="0.7" />
+          {/* SEO arrow */}
+          <path d="M68 82l20-18 14 12 16-20" />
+          <path d="M118 56h10v10" />
+        </g>
+      </svg>
+    );
+  }
+
+  if (kind === "collaboration") {
+    return (
+      <svg {...common}>
+        <g stroke={stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.92">
+          {/* kanban columns */}
+          <rect x="48" y="28" width="124" height="68" rx="14" opacity="0.55" />
+          <path d="M90 34v56" opacity="0.65" />
+          <path d="M130 34v56" opacity="0.65" />
+          {/* cards */}
+          <rect x="58" y="42" width="22" height="12" rx="4" />
+          <rect x="58" y="60" width="22" height="12" rx="4" opacity="0.9" />
+          <rect x="98" y="46" width="22" height="12" rx="4" />
+          <rect x="138" y="50" width="22" height="12" rx="4" />
+          {/* websocket waves */}
+          <path d="M176 48c8 8 8 20 0 28" opacity="0.75" />
+          <path d="M186 42c12 12 12 32 0 44" opacity="0.5" />
+        </g>
+      </svg>
+    );
+  }
+
+  if (kind === "audit") {
+    return (
+      <svg {...common}>
+        <g stroke={stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.92">
+          {/* shield */}
+          <path d="M110 26l44 16v24c0 22-16 38-44 46-28-8-44-24-44-46V42l44-16Z" opacity="0.55" />
+          {/* checklist */}
+          <path d="M86 56h44" />
+          <path d="M86 72h44" opacity="0.9" />
+          <path d="M86 88h34" opacity="0.75" />
+          <path d="M76 56l4 4 8-10" />
+          <path d="M76 72l4 4 8-10" opacity="0.9" />
+        </g>
+      </svg>
+    );
+  }
+
+  if (kind === "callcenter") {
+    return (
+      <svg {...common}>
+        <g stroke={stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.92">
+          {/* headset */}
+          <path d="M78 72v-8a32 32 0 0 1 64 0v8" />
+          <path d="M74 72h10v18H74a8 8 0 0 1-8-8v-2a8 8 0 0 1 8-8Z" />
+          <path d="M146 72h10a8 8 0 0 1 8 8v2a8 8 0 0 1-8 8h-10V72Z" />
+          <path d="M110 96c10 0 18-4 18-12" opacity="0.7" />
+          {/* phone wave */}
+          <path d="M170 46c10 10 10 26 0 36" opacity="0.6" />
+        </g>
+      </svg>
+    );
+  }
+
   // leetcode
   return (
     <svg {...common}>
@@ -101,8 +211,22 @@ const ProjectVisual = ({ kind }: { kind: ProjectVisualKey }) => {
   );
 };
 
-const projects = [
+type ProjectType = "personal" | "company";
+
+type Project = {
+  type: ProjectType;
+  title: string;
+  description: string;
+  highlights: string[];
+  tech: string[];
+  github?: string;
+  live?: string;
+  visual: ProjectVisualKey;
+};
+
+const personalProjects: Project[] = [
   {
+    type: "personal",
     title: "Eyewear E-Commerce + Cataract Detection",
     description:
       "Designed and launched a multi-store e-commerce website specializing in a wide range of eye-related products, with the added capability of providing deep learning-based cataract disease detection through an integrated eye check-up feature.",
@@ -117,6 +241,7 @@ const projects = [
     visual: "eyewear" as const,
   },
   {
+    type: "personal",
     title: "CommerceKit",
     description:
       "A scalable ecommerce platform built on a microservices architecture using Express.js, featuring lightning-fast product search powered by Elasticsearch. Each service is independently deployable, loosely coupled, and designed for high availability — built to handle real-world commerce at scale.",
@@ -131,6 +256,7 @@ const projects = [
     visual: "microservices" as const,
   },
   {
+    type: "personal",
     title: "iCare",
     description:
       "A healthcare management system using Next.js, enabling patients to book online consultations with doctors. Implemented various consultation types, including in-home and in-clinic appointments, to enhance patient care accessibility.",
@@ -145,6 +271,7 @@ const projects = [
     visual: "healthcare" as const,
   },
   {
+    type: "personal",
     title: "Leetcode Blind 75",
     description: "Blind 75 leetcode problems helps you understand every design pattern",
     highlights: [
@@ -159,7 +286,74 @@ const projects = [
   },
 ];
 
-type Project = (typeof projects)[number];
+// Company work contributions (links can be set to the live domains from your CV).
+const companyContributions: Project[] = [
+  {
+    type: "company",
+    title: "Financial Insights Platform",
+    description: "React + Django financial analytics dashboards with performance and observability improvements.",
+    highlights: [
+      "Improved Core Web Vitals via virtualization, memoization, Suspense, and code-splitting",
+      "Implemented Redis caching for analytics dashboards (up to 60% faster API responses)",
+      "Enhanced observability with CloudWatch + Sentry (40% faster incident response)",
+    ],
+    tech: ["React", "Django", "Redis", "PostgreSQL", "AWS", "Jest", "RTL"],
+    live: "https://insight.nexdos.de/news",
+    visual: "analytics",
+  },
+  {
+    type: "company",
+    title: "Marketing Web Platform",
+    description: "Next.js marketing site with i18n/SEO improvements and a shared component system.",
+    highlights: [
+      "Server-side i18n helpers to improve SEO",
+      "Highly responsive UI with Material UI + Tailwind CSS",
+      "Monorepo + shared component package (35% less duplication)",
+    ],
+    tech: ["Next.js", "Django", "Docker", "MUI", "Tailwind CSS"],
+    live: "https://dev.homepage.k8s.nexdos.de/de-de",
+    visual: "marketing",
+  },
+  {
+    type: "company",
+    title: "Boarddd – Collaboration Platform",
+    description: "B2B SaaS collaboration platform with real-time communication and search at scale.",
+    highlights: [
+      "RabbitMQ microservices for async tasks; reduced backend load",
+      "Reusable WebSocket layer with custom hooks for real-time UX",
+      "Elasticsearch search: 2–4s → 20–50ms latency",
+    ],
+    tech: ["Next.js", "Node.js", "PostgreSQL", "AWS", "Elasticsearch", "RabbitMQ", "GraphQL", "Docker"],
+    live: "https://boarddd-frontend-murex.vercel.app/login",
+    visual: "collaboration",
+  },
+  {
+    type: "company",
+    title: "Hailo Assure (AEP) – Audit Management System",
+    description: "Audit management platform with reusable templates and interactive dashboards.",
+    highlights: [
+      "60+ customizable audit workflows via dynamic templates",
+      "Redux Toolkit for complex async workflows and global state",
+      "Chart.js dashboards for audit parameters and decision-making",
+    ],
+    tech: ["React", "TypeScript", "Redux", "AWS", "S3", "Chart.js"],
+    live: "https://aepltd.com/services.html",
+    visual: "audit",
+  },
+  {
+    type: "company",
+    title: "iTalk2u – Call Centre Platform",
+    description: "Backend platform powering onboarding/training workflows for large remote agent teams.",
+    highlights: [
+      "High-performance REST APIs used by 10K+ remote agents",
+      "JWT + refresh tokens + HTTP-only cookies for secure auth",
+      "MySQL/PostgreSQL-backed services for operational workflows",
+    ],
+    tech: ["Node.js", "MySQL", "PostgreSQL", "JWT"],
+    live: "https://italk2u.co.za",
+    visual: "callcenter",
+  },
+];
 
 function isRealLink(url?: string) {
   return Boolean(url) && url !== "#";
@@ -260,6 +454,10 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 };
 
 const Projects = () => {
+  const [tab, setTab] = useState<ProjectType>("personal");
+
+  const list = tab === "personal" ? personalProjects : companyContributions;
+
   return (
     <section id="projects" className="section-padding max-w-4xl mx-auto">
       <motion.div
@@ -268,15 +466,38 @@ const Projects = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-2xl md:text-3xl font-bold font-heading mb-8 flex items-center gap-3">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold font-heading flex items-center gap-3">
           <span className="font-mono text-primary text-lg">04.</span> Projects
           <span className="h-px flex-1 bg-border ml-4" />
-        </h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((project, i) => (
-            <ProjectCard key={project.title} project={project} index={i} />
-          ))}
+          </h2>
+
+          <Tabs value={tab} onValueChange={(v) => setTab(v as ProjectType)}>
+            <TabsList className="bg-background/30 border border-border/60 backdrop-blur-md">
+              <TabsTrigger value="personal" className="font-mono text-sm">
+                Personal projects
+              </TabsTrigger>
+              <TabsTrigger value="company" className="font-mono text-sm">
+                Company contributions
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tab}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
+            className="grid gap-6 md:grid-cols-2"
+          >
+            {list.map((project, i) => (
+              <ProjectCard key={`${tab}-${project.title}`} project={project} index={i} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </motion.div>
     </section>
   );
