@@ -158,7 +158,7 @@ const Experience = () => {
                         <h3 className="text-lg font-bold font-heading text-foreground">
                           {exp.role} <span className="text-primary">@ {exp.company}</span>
                         </h3>
-                        <span className="font-mono text-xs text-muted-foreground">{exp.period}</span>
+                        <span className="font-mono text-xs text-muted-foreground shrink-0 whitespace-nowrap">{exp.period}</span>
                       </div>
                       <div className="flex items-center gap-1 text-muted-foreground font-mono text-xs mb-4">
                         <MapPin className="w-3 h-3" /> {exp.location}

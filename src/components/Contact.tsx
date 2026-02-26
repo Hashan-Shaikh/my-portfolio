@@ -36,13 +36,13 @@ const Contact = () => {
                 </div>
                 <div className="grid gap-3">
                   <a
-                    href="mailto:hasanalamshaikh@gmail.com"
+                    href="mailto:hashanalamshaikh@gmail.com"
                     className="min-w-0 w-full overflow-hidden flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 rounded-lg border border-border/60 bg-card/40 px-4 py-3 text-sm text-foreground hover:border-primary/30 hover:bg-card/60 transition-colors"
                   >
                     <span className="flex items-center gap-2 font-mono min-w-0 flex-1">
                       <Mail className="h-4 w-4 text-primary shrink-0" />
                       <span className="min-w-0 flex-1 text-left break-all sm:break-normal sm:truncate">
-                        hasanalamshaikh@gmail.com
+                        hashanalamshaikh@gmail.com
                       </span>
                     </span>
                     <span className="font-mono text-xs text-muted-foreground shrink-0">Email</span>
@@ -72,7 +72,7 @@ const Contact = () => {
                 </div>
                 <div className="flex flex-wrap gap-3">
                   <a
-                    href="mailto:hasanalamshaikh@gmail.com?subject=Let%27s%20work%20together"
+                    href="mailto:hashanalamshaikh@gmail.com?subject=Let%27s%20work%20together"
                     className="inline-flex items-center gap-2 font-mono text-sm bg-primary text-primary-foreground px-6 py-3 rounded-md hover:bg-primary/90 transition-colors"
                   >
                     <Mail className="w-4 h-4" /> Say Hello
@@ -91,9 +91,9 @@ const Contact = () => {
 
                 <div className="flex items-center gap-2 mt-6">
                   {[
-                    { href: "https://github.com/", label: "GitHub", icon: Github },
-                    { href: "https://linkedin.com/", label: "LinkedIn", icon: Linkedin },
-                    { href: "mailto:hasanalamshaikh@gmail.com", label: "Email", icon: Mail },
+                    { href: "https://github.com/Hashan-Shaikh", label: "GitHub", icon: Github },
+                    { href: "https://www.linkedin.com/in/hashan-alam-121a271b4/", label: "LinkedIn", icon: Linkedin },
+                    { href: "mailto:hashanalamshaikh@gmail.com", label: "Email", icon: Mail },
                     { href: "tel:+4915739043558", label: "Phone", icon: Phone },
                   ].map((item) => (
                     <a

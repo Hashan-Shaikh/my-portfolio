@@ -81,7 +81,7 @@ const Hero = () => {
                 View my work <ArrowDown className="w-4 h-4" />
               </a>
               <a
-                href="mailto:hasanalamshaikh@gmail.com"
+                href="mailto:hashanalamshaikh@gmail.com"
                 className="inline-flex items-center gap-2 font-mono text-sm bg-primary text-primary-foreground px-6 py-3 rounded-md hover:bg-primary/90 transition-colors"
               >
                 Get in touch
@@ -178,7 +178,7 @@ const Hero = () => {
                     <div className="text-xs text-muted-foreground">Full‑time · Remote/On‑site</div>
                   </div>
                   <a
-                    href="mailto:hasanalamshaikh@gmail.com"
+                    href="mailto:hashanalamshaikh@gmail.com"
                     className="shrink-0 inline-flex items-center rounded-md bg-primary text-primary-foreground px-3 py-2 font-mono text-xs hover:bg-primary/90 transition-colors"
                   >
                     Email me
