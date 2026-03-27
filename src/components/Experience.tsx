@@ -16,44 +16,52 @@ type ExperienceProject = {
   bullets: string[];
 };
 
-const experiences = [
+type ExperienceEntry = {
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  summary: string[];
+  tech: string[];
+  // Either show project-wise breakdown OR a single list of bullets
+  projects?: ExperienceProject[];
+  bullets?: string[];
+};
+
+const experiences: ExperienceEntry[] = [
   {
-    company: "neXDos GmbH",
+    company: "neXDos, GmbH",
     role: "Software Engineer",
     period: "06/2025 – Present",
     location: "Munich, Germany",
     summary: [
-      "Optimized React rendering with virtualization, memoization, Suspense, and code-splitting to improve Core Web Vitals.",
-      "Implemented Redis caching for analytics dashboards, improving API response time by ~60%.",
-      "Established a monorepo + shared component package, cutting code duplication by ~35%.",
+      "Developed React/Next.js frontends and Django/FastAPI services in a microservices architecture (REST + GraphQL) deployed on Kubernetes.",
+      "Architected a high-throughput Kafka data pipeline for large-scale financial datasets with end-to-end observability via Datadog.",
+      "Built an agentic analytics platform (LangGraph/LangChain) using a Qdrant RAG pipeline for secure enterprise data analysis.",
     ],
-    projects: [
-      {
-        name: "Financial Insights Platform",
-        tech: ["React", "Django", "Redis", "PostgreSQL", "AWS"],
-        bullets: [
-          "Optimized React rendering with virtualization, memoization, Suspense, and code-splitting, improving Core Web Vitals scores.",
-          "Developed reusable React (TypeScript) hooks and components, enhancing front-end scalability.",
-          "Engineered a Python backend with layered architecture (DAO/DTO separation), strengthening modularity, separation of concerns, and testability.",
-          "Implemented Redis caching for dashboards with financial analytics charts, improving API response time by ~60%.",
-          "Enforced code quality with Jest/React Testing Library tests, achieving 90%+ code coverage.",
-          "Enhanced observability via CloudWatch and Sentry, reducing incident response time by ~40%.",
-          "Reviewed merge requests and managed user stories to ensure quality and timely releases.",
-        ],
-      },
-      {
-        name: "Marketing Web Platform",
-        tech: ["Next.js", "Django", "Docker", "MUI", "Tailwind CSS"],
-        bullets: [
-          "Implemented i18n helpers at Next.js server-side, improving SEO score of the marketing app.",
-          "Developed highly responsive components with Material UI and Tailwind CSS, directly improving UI/UX.",
-          "Established a monorepo and shared component package, cutting code duplication by ~35%.",
-          "Translated Figma designs into pixel-perfect UI using HTML, CSS, and Material UI.",
-          "Participated in weekly scrums to identify workflow bottlenecks and improve team alignment.",
-        ],
-      },
+    bullets: [
+      "Developed responsive frontend applications using React/Next.js and backend services with Django/FastAPI within a microservices architecture, integrating multiple internal services via REST and GraphQL, and deploying containerized applications on Kubernetes using Docker.",
+      "Architected and implemented a high-throughput event-driven data pipeline leveraging Kafka to ingest and stream large-scale financial datasets from Goldman Sachs, with end-to-end observability using Datadog for monitoring, distributed tracing, and real-time alerting across microservices and Kubernetes workloads.",
+      "Engineered a production-grade agentic analytics platform leveraging LangGraph and LangChain to orchestrate multiple agentic workflows, within a Qdrant based RAG pipeline, supporting LLM reasoning for secure, context-aware, and intelligent exploratory data analysis over complex enterprise datasets such as S&P 500 Index, ESG Book, and Goldman Sachs.",
+      "Implemented a robust API security layer using Keycloak with SSO integration, role-based access control (RBAC), and JWT-based session management to support a scalable multi-tenant enterprise architecture.",
     ],
-    tech: ["React", "Next.js", "Django", "Redis", "PostgreSQL", "AWS", "Docker", "MUI", "Tailwind CSS", "Jest", "RTL"],
+    tech: [
+      "React",
+      "Next.js",
+      "Django",
+      "FastAPI",
+      "REST",
+      "GraphQL",
+      "Kubernetes",
+      "Docker",
+      "Kafka",
+      "Datadog",
+      "LangGraph",
+      "LangChain",
+      "Qdrant",
+      "Keycloak",
+      "JWT",
+    ],
   },
   {
     company: "Aideniti",
@@ -206,34 +214,45 @@ const Experience = () => {
 
                     <div className="space-y-5">
                       <div>
-                        <div className="font-mono text-xs text-primary mb-3">{`// Projects`}</div>
-                        <div className="space-y-5">
-                          {exp.projects.map((p: ExperienceProject) => (
-                            <div key={p.name} className="rounded-lg border border-border/60 bg-card/40 p-4">
-                              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                                <div className="font-heading font-bold text-foreground">{p.name}</div>
-                                <div className="flex flex-wrap gap-2">
-                                  {p.tech.map((t) => (
-                                    <TechBadge
-                                      key={t}
-                                      label={t}
-                                      className="font-mono text-xs bg-secondary text-primary/80 px-2 py-1 rounded-sm"
-                                      iconClassName="h-3.5 w-3.5"
-                                    />
-                                  ))}
+                        <div className="font-mono text-xs text-primary mb-3">{exp.projects ? `// Projects` : `// Impact`}</div>
+                        {exp.projects ? (
+                          <div className="space-y-5">
+                            {exp.projects.map((p: ExperienceProject) => (
+                              <div key={p.name} className="rounded-lg border border-border/60 bg-card/40 p-4">
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                                  <div className="font-heading font-bold text-foreground">{p.name}</div>
+                                  <div className="flex flex-wrap gap-2">
+                                    {p.tech.map((t) => (
+                                      <TechBadge
+                                        key={t}
+                                        label={t}
+                                        className="font-mono text-xs bg-secondary text-primary/80 px-2 py-1 rounded-sm"
+                                        iconClassName="h-3.5 w-3.5"
+                                      />
+                                    ))}
+                                  </div>
                                 </div>
+                                <ul className="space-y-2">
+                                  {p.bullets.map((h, j) => (
+                                    <li key={j} className="text-muted-foreground text-sm leading-relaxed flex gap-2">
+                                      <span className="text-primary mt-1.5 shrink-0">▹</span>
+                                      <span>{h}</span>
+                                    </li>
+                                  ))}
+                                </ul>
                               </div>
-                              <ul className="space-y-2">
-                                {p.bullets.map((h, j) => (
-                                  <li key={j} className="text-muted-foreground text-sm leading-relaxed flex gap-2">
-                                    <span className="text-primary mt-1.5 shrink-0">▹</span>
-                                    <span>{h}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <ul className="space-y-2">
+                            {(exp.bullets ?? []).map((h, j) => (
+                              <li key={j} className="text-muted-foreground text-sm leading-relaxed flex gap-2">
+                                <span className="text-primary mt-1.5 shrink-0">▹</span>
+                                <span>{h}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
 
                       <div>
